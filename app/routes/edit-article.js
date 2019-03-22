@@ -2,8 +2,8 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
 
-	model() {
-      return {article: this.get('store').find('article', 1)}
+	model(params) {
+      return {article: this.get('store').find('article', params.article_id)}
 	}
 
 });

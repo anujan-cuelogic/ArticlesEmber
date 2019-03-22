@@ -6,6 +6,7 @@ export default Component.extend({
     destroyArticle(articleId) {
       this.get('store').findRecord('article', articleId, {backgroundReload: false}).then(function(article) {
         article.destroyRecord();
+        this.set('articlesCount', this.get('articlesCount') + 1)
       });
     }
   }

@@ -1,15 +1,17 @@
 <div class="row" style="margin-top: 25px;">
   <div class="col-sm-1">
-    <img src="images/gravatar.png">
+    <img src="/images/gravatar.png">
   </div>
   <div class="col-sm-11">
     <!-- {{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3> -->
     <h2>{{user.name}}<small>{{#link-to 'user' user.id}}@{{user.username}}{{/link-to}}</small></h2>
     <p>{{article.body}}</p>
+    <p>{{article.createdAt}}</p>
+    {{log article.createdAt}}
     {{#if editable}}
       <div class="pull-right">
-        {{#link-to 'edit-article'}}Edit{{/link-to}}
-        <a href="#" {{action "destroyArticle" article.id}}>Delete</a>
+        {{#link-to 'edit-article' article.id}}Edit{{/link-to}}
+        <a href="javascript:void(0)" {{action "destroyArticle" article.id}}>Delete</a>
       </div>
     {{/if}}
   </div>

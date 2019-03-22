@@ -1,4 +1,8 @@
 <div class="quote-main">
+  {{log 'TTTTTTTTTTTTTT' errorMsg}}
+  {{#if errorMsg}}
+    <div style="padding: 10px; color: red;">{{errorMsg}}</div>
+  {{/if}}
   {{textarea class="form-control" placeholder="Start writing your article here" value=articleText}}
   <input type="button" class="btn btn-default btn-sm pull-right" value="Share" required={{true}} {{action actionName}}>
   {{articleText}}
