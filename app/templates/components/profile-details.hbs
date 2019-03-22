@@ -1,0 +1,29 @@
+<div class="col-sm-4">
+  <div class="pro-m">
+      <div class="t-bg"></div>
+      <div class="form-group">
+        {{#link-to "user" class="secbox"}}
+          <img src="images/gravatar.png" alt="avatar">
+          <h2>{{user.name}}</h2>
+          <p>@{{user.username}}</p>
+        {{/link-to}}
+      <div class="form-group col-sm-12">{{user.bio}}</div>
+      </div>
+      <div class="form-group">
+        <div class="row mrgn-m">
+          <div class="col-sm-4">
+            <span class="small-txt">quotes</span>
+            <span class="big-txt">{{user.numberOfQuotes}}</span>
+          </div>
+          <div class="col-sm-4">
+            <span class="small-txt">following</span>
+            <span class="big-txt">{{#link-to "user.following"}}{{user.numberOfFollowing}} {{/link-to}}</span>
+          </div>
+          <div class="col-sm-4">
+            <span class="small-txt">followers</span>
+            <span class="big-txt">{{#link-to "user.followers"}}{{user.numberOfFollowers}}{{/link-to}}</span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

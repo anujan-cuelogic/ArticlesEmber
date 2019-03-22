@@ -1,5 +1,25 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class=" navbar navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Quotes"></a>
+    </div>
+    <nav>
+      <ul class="navbar nav navbar-nav navbar-right">
+        <li>{{#link-to "index"}}Home{{/link-to}}</li>
+        <li>{{#link-to "users"}}<i class="fa fa-user"></i>Users{{/link-to}}</li>
+        <li><a href="#" class="btn btn-default btn-sm"><i class="fa fa-quote-left"></i> Share you quote </a></li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="container">
+    {{outlet}}
+  </div>
+</div>

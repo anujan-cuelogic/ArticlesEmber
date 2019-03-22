@@ -1,0 +1,14 @@
+<div class="p-q">
+  <div class="inner">
+    {{#each users as |user|}}
+      <div class="row" style="margin-top: 25px;">
+        <div class="col-sm-1">
+          <img src="images/gravatar.png">
+        </div>
+        <div class="col-sm-11">
+          <h2>{{user.name}}<small>{{#link-to 'user'}}@{{user.username}}{{/link-to}}</small></h2>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

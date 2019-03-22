@@ -1,0 +1,11 @@
+<div class="p-q">
+  <div class="inner">
+    <!-- {{quotes-list/quotes-message}} -->
+    {{log articles}}
+    {{log '^^^^^^^^^^^^^^^^^^'}}
+    {{log sortedArticles}}
+    {{#each sortedArticles as |article|}}
+      {{quotes-list/quotes-message article=article user=article.user}}
+    {{/each}}
+  </div>
+</div>

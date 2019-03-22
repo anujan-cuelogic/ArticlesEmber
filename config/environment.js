@@ -24,6 +24,13 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
+    ENV.contentSecurityPolicy = {
+      // ... other stuff here
+      'connect-src': "'self' http://localhost:7654"
+    }
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

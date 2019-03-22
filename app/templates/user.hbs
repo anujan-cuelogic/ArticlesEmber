@@ -1,0 +1,8 @@
+<div class="col-sm-8">
+  <QuotesUpdate />  
+  <h1><strong>{{model.user.name}}'s Articles</strong></h1>
+  <QuotesList @articles={{model.user.articles}} />
+</div>
+{{log 'model---->'}}
+{{log model.user.articles}}
+<ProfileDetails @user={{model.user}} />
