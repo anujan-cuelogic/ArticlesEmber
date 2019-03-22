@@ -8,10 +8,13 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('home');
+  this.route('new-article');
+  this.route('edit-article');
   this.route('user', function() {
     this.route('followers');
     this.route('following');
-    this.route('new_article', {path: '/:user_id'});
+    this.route('new-article');
+    this.route('edit-article');
   });
 
   this.route('users', function() {

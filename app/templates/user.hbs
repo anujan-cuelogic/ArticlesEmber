@@ -1,7 +1,7 @@
 <div class="col-sm-8">
-  <QuotesUpdate />  
+  <QuotesUpdate @actionName=postArticle/>
   <h1><strong>{{model.user.name}}'s Articles</strong></h1>
-  <QuotesList @articles={{model.user.articles}} />
+  <QuotesList @articles={{model.user.articles}} @editable={{true}} />
 </div>
 {{log 'model---->'}}
 {{log model.user.articles}}

@@ -1,5 +1,6 @@
 <div class="quote-main">
+	{{log 'RRRRRRRRR' articleBody articleId}}
     {{textarea class="form-control" placeholder="Start writing your article here" value=articleText}}
-    <input type="button" class="btn btn-default btn-sm pull-right" value="Share" {{action 'postArticle'}}>
+    <input type="button" class="btn btn-default btn-sm pull-right" value="Share" {{action actionName}}>
     {{articleText}}
 </div>
