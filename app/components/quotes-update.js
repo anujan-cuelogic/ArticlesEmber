@@ -5,13 +5,14 @@ export default Component.extend({
   actions: {
 
     postArticle: function() {
-      console.log('postArticle ppppppppppppp')
+      console.log('postArticle ppppppppppppp', this.get('userId'))
       var txt = this.get('articleText');
-      this.get('store').findRecord('user', 1).then((user) => {
+      this.get('store').findRecord('user', this.get('userId')).then((user) => {
         var ArticleData = {body: txt, user: user};
         var newArticle = this.get('store').createRecord('article', ArticleData)
         return newArticle.save();
       });
+      this.set('articleText', '')
     },
 
 
@@ -24,7 +25,8 @@ export default Component.extend({
         console.log('-----updateArticle', article.get('hasDirtyAttributes'), article.get('changedAttributes()'))
         return article.save();
       });
-    }
+    },
+
   }
 
 });

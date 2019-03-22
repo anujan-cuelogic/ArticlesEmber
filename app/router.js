@@ -10,16 +10,14 @@ Router.map(function() {
   this.route('home');
   this.route('new-article');
   this.route('edit-article');
-  this.route('user', function() {
+  this.route('users');
+  this.route('user', {path: '/user/:user_id'}, function() {
     this.route('followers');
     this.route('following');
-    this.route('new-article');
+    // this.route('new-article');
     this.route('edit-article');
   });
 
-  this.route('users', function() {
-    this.route('show', { path: '/:user_id' });
-  });
 });
 
 export default Router;

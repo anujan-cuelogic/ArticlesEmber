@@ -4,7 +4,7 @@
   </div>
   <div class="col-sm-11">
     <!-- {{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3> -->
-    <h2>{{user.name}}<small>{{#link-to 'user'}}@{{user.username}}{{/link-to}}</small></h2>
+    <h2>{{user.name}}<small>{{#link-to 'user' user.id}}@{{user.username}}{{/link-to}}</small></h2>
     <p>{{article.body}}</p>
     {{#if editable}}
       <div class="pull-right">
