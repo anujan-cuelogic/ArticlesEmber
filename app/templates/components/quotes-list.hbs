@@ -1,9 +1,5 @@
 <div class="p-q">
   <div class="inner">
-    <!-- {{quotes-list/quotes-message}} -->
-    {{log articles}}
-    {{log '^^^^^^^^^^^^^^^^^^' editable true 'true'}}
-    {{log sortedArticles}}
     {{#each sortedArticles as |article|}}
       {{quotes-list/quotes-message article=article user=article.user editable=editable}}
     {{/each}}
