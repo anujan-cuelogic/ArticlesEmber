@@ -11,9 +11,14 @@
     </div>
     <nav>
       <ul class="navbar nav navbar-nav navbar-right">
-        <li>{{#link-to "index"}}Home{{/link-to}}</li>
-        <li>{{#link-to "users"}}<i class="fa fa-user"></i>Users{{/link-to}}</li>
-        <!-- <li>{{#link-to "new-article" class="btn btn-default btn-sm"}}<i class="fa fa-quote-left"></i> Share you article {{/link-to}}</li> -->
+        {{# if session.isAuthenticated}}
+          <li>{{#link-to "index"}}Home{{/link-to}}</li>
+          <li>{{#link-to "users"}}Search Users{{/link-to}}</li>
+          <li>< a href="#" {{action 'invalidateSession'}}>Logout</ a></li>
+        {{else}}
+          <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+          <li>{{#link-to "signup"}}Register{{/link-to}}</li>
+        {{/if}}
       </ul>
     </nav>
   </div>

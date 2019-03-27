@@ -1,10 +1,12 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPIAdapter.extend({
+  // authorizer: 'authorizer:custom',
   host: "http://localhost:3000",
-  // headers: {
-  //   'X-Requested-With': 'XMLHttpRequest'
-  // },
+  session: Ember.inject.service(),
+  headers: Ember.computed('session.token', function() {
+    return {Authorization: this.get('session.data.authenticated.token')}
+  })
   // ajax(url, method, hash) {
   //   if (true) {
   //     if (hash === undefined) { hash = {}; }

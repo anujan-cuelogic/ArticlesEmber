@@ -6,11 +6,10 @@
     <!-- {{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3> -->
     <h2>{{user.name}}<small>{{#link-to 'user' user.id}}@{{user.username}}{{/link-to}}</small></h2>
     <p>{{article.body}}</p>
-    <p>{{article.createdAt}}</p>
-    {{log article.createdAt}}
+    <p>{{moment-calendar article.createdDate}}</p>
     {{#if editable}}
       <div class="pull-right">
-        {{#link-to 'edit-article' article.id}}Edit{{/link-to}}
+        {{#link-to 'edit-article' user.id article.id}}Edit{{/link-to}}
         <a href="javascript:void(0)" {{action "destroyArticle" article.id}}>Delete</a>
       </div>
     {{/if}}

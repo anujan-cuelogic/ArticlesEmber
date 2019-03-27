@@ -1,0 +1,33 @@
+<!-- <form {{action 'authenticate' on='submit'}}>
+  <label for="identification">Email</label>
+  {{input id='identification' value=identification}}
+  <label for="password">Password</label>
+  {{input id='password' value=password}}
+  <button type="submit">Login</button>
+</form>
+ -->
+
+<div class="container">
+  <div class="row lgfrm">
+    <div class="col-sm-12">
+      <form {{action "authenticate" on='submit'}}>
+        <div class="form-group">
+          <label for="identification">Login</label>
+          {{input value=identification placeholder='Enter Username' class='form-control'}}
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          {{input value=password placeholder='Enter Password' class='form-control' type='password'}}
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+      </form>
+      {{#if errorMessage}}
+      <div class="alert alert-danger">
+        <p>
+          <strong>Login failed:</strong> <code>{{errorMessage}}</code>
+        </p>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

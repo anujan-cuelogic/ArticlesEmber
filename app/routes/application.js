@@ -1,7 +1,15 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  // model() {
-  //   return {user: this.store.findRecord('user', 2)}
-  // }
+import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
+
+const { service } = Ember.inject;
+
+
+export default Route.extend(ApplicationRouteMixin, {
+  session: Ember.inject.service(),
+  actions: {
+    invalidateSession: function() {
+        this.get('session').invalidate();
+    }
+  }
 });
