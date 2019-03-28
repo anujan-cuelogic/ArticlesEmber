@@ -7,10 +7,10 @@ export default Route.extend({
       this.replaceWith('login');
     }
   },
-  model() {
+  async model() {
+    await this.store.findAll('user');
     return {
-      articles: this.get('store').findAll('article'),
-      users: this.store.findAll('user')
+      articles: this.get('store').findAll('article')
     }
   }
 });

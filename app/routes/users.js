@@ -8,6 +8,7 @@ export default Route.extend({
     }
   },
   model() {
-    return {users: this.store.findAll('user')};
+  	// debugger
+    // return {users: this.store.findAll('user')};
   }
 });
