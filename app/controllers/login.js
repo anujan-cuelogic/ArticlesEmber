@@ -11,7 +11,11 @@ export default Controller.extend({
         authenticator = 'authenticator:jwt';
       this.get('session').authenticate(authenticator, credentials).catch((reason)=> {
         // this.transitionTo('login');
-        this.set('errorMessage', reason.error || reason);
+        if (reason.status == 401) {
+          this.set('errorMessage', 'Invalid username or password');
+        } else {
+          this.set('errorMessage', 'Looks like our server is in trouble!! Try again in few minutes');
+        }
       });
     }
   }

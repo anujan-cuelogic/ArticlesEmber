@@ -30,7 +30,6 @@ export default Base.extend({
     };
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then((response) => {
-      console.log('JWT ----->', data, requestOptions, response.token)
         // Wrapping aync operation in Ember.run
         run(() => {
           resolve({
@@ -44,6 +43,7 @@ export default Base.extend({
         run(() => {
           reject(error);
         });
+        this.get('session').invalidate();
       });
     });
   },
