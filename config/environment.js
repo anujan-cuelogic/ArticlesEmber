@@ -27,7 +27,7 @@ module.exports = function(environment) {
     ENV.host = 'http://localhost:3000';
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:custom',
-      routeAfterAuthentication: '/'
+      routeAfterAuthentication: 'index'
     };
     ENV['ember-cli-mirage'] = {
       enabled: false

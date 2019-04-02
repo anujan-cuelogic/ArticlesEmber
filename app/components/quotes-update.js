@@ -1,8 +1,9 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
-  store: Ember.inject.service(),
-  router: Ember.inject.service(),
+  store: service(),
+  router: service(),
   actions: {
     postArticle: function() {
       var txt = this.get('articleText');

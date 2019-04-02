@@ -8,6 +8,8 @@ export default Base.extend({
 
   tokenEndpoint: config.host + '/authentication/login',
 
+  store: Ember.inject.service(),
+
   restore(data) {
     return new Promise((resolve, reject) => {
       if (!Ember.isEmpty(data.token)) {
@@ -33,11 +35,10 @@ export default Base.extend({
         // Wrapping aync operation in Ember.run
         run(() => {
           resolve({
-            token: response.token
+            token: response.token, userId: response.user_id
           });
         });
-        // let userId = response.user_id;
-        // Ember.getOwner(this).lookup('router:main').transitionTo('user',userId);
+        this.get('store').push(response.user)
       }, (error) => {
         // Wrapping aync operation in Ember.run
         run(() => {

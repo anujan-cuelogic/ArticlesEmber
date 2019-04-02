@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import config from '../config/environment';
 
 export default Controller.extend({
 
@@ -15,18 +16,16 @@ export default Controller.extend({
         // email: email,
         password: password
       });
-      // debugger
       if (name && username && password) {
         return registeredUser.save().then((user) => {
-        this.transitionToRoute('login');
+        window.location.replace('/login');
         }).catch((reason) => {
             this.set('errorMessage', reason.error || reason);
           }); 
       } else if (username === undefined && password === undefined) {
-        // debugger
-        this.set('errorMessage', 'Plase enter Username and Password.');
+        this.set('errorMessage', 'Please enter Username and Password.');
       } else {
-        this.set('errorMessage', 'Plase enter User details.');
+        this.set('errorMessage', 'Please enter User details.');
       }
       // return registeredUser.save();
       

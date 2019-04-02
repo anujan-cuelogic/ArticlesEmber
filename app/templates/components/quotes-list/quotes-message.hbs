@@ -7,7 +7,7 @@
     <h2>{{user.name}}<small>{{#link-to 'user' user.id}}@{{user.username}}{{/link-to}}</small></h2>
     <p>{{article.body}}</p>
     <p>{{moment-calendar article.createdDate}}</p>
-    {{#if editable}}
+    {{#if canModify}}
       <div class="pull-right">
         {{#link-to 'edit-article' user.id article.id}}Edit{{/link-to}}
         <a href="javascript:void(0)" {{action "destroyArticle" article.id}}>Delete</a>
