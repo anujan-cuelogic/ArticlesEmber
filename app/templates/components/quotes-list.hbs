@@ -2,6 +2,10 @@
   <div class="inner">
     {{#each sortedArticles as |article|}}
       {{quotes-list/quotes-message article=article user=article.user editable=editable alert="" alertClass=""}}
+    {{else}}
+      <div class="row text-center">
+        <h4>There are no Articles to display</h4>
+      </div>
     {{/each}}
   </div>
 </div>
