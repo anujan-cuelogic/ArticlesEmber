@@ -12,9 +12,10 @@
     <nav>
       <ul class="navbar nav navbar-nav navbar-right">
         {{# if session.isAuthenticated}}
-          <li>{{#link-to "index"}}Home{{/link-to}}</li>
-          <li>{{#link-to "users"}}Search Users{{/link-to}}</li>
-          <li>< a href="#" {{action 'invalidateSession'}}>Logout</ a></li>
+          <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+          <li>{{#link-to 'users'}}Search Users{{/link-to}}</li>
+          <li>{{#link-to 'user' session.data.authenticated.userId}}My Profile{{/link-to}}</li>
+          <li>< a href="javascript:void(0)" {{action 'invalidateSession'}}>Logout</ a></li>
         {{else}}
           <li>{{#link-to 'login'}}Login{{/link-to}}</li>
           <li>{{#link-to "signup"}}Register{{/link-to}}</li>

@@ -6,10 +6,9 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend(ApplicationRouteMixin, {
 
-  session: Ember.inject.service(),
+  session: service(),
 
   currentUser: service('currentUser'),
-
 
   beforeModel() {
     if (!this.get('session.isAuthenticated')) {
@@ -26,6 +25,10 @@ export default Route.extend(ApplicationRouteMixin, {
 
   _loadCurrentUser() {
     return this.get('currentUser').load();
+  },
+
+  model() {
+    return {currentUserId: this.get('currentUser.userId')}
   },
 
   actions: {

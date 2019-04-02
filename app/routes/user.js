@@ -6,8 +6,6 @@ export default Route.extend({
   session: service(),
   currentUser: service('currentUser'),
 
-  articleCount: Ember.computed.alias('model.user.articles.length'),
-
   beforeModel() {
     if (!this.get('session.isAuthenticated')) {
       this.replaceWith('login');
@@ -15,7 +13,7 @@ export default Route.extend({
   },
 
   async model(params) {
-    var user = await this.get('store').find('user', params.user_id)
+    var user = await this.get('store').find('user', params.user_id);
     var canAddArticle = (this.get('currentUser.userId') == user.id)
     return {
       user: user,
