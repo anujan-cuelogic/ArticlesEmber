@@ -1,5 +1,10 @@
-{{input value=value
-        key-up=(action 'handleFilterEntry')
-        class="light"
-        placeholder="Filter By Name"}}
+{{
+	input value=value
+    key-up=(action 'handleFilterEntry')
+    class="light"
+    placeholder="Filter By Name"
+}}
+<button class="" onClick={{action 'ascendingResult'}}>Asc</button>
+<button onClick={{action 'decendingResult'}}>Desc</button>
+    
 {{yield results}}

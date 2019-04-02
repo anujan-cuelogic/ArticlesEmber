@@ -1,4 +1,6 @@
 import Controller from '@ember/controller';
+import { inject } from '@ember/service'
+import { enc } from "crypto-js";
 
 export default Controller.extend({
 
@@ -7,8 +9,11 @@ export default Controller.extend({
 
   actions: {
     authenticate: function() {
-      var credentials = this.getProperties('identification', 'password'),
-        authenticator = 'authenticator:jwt';
+      let password = enc.Utf8.parse(this.password);
+      let encryptedPassword = enc.Base64.stringify(password);
+      // var credentials = this.getProperties('identification', 'password');
+      let credentials = {identification: this.identification, password: encryptedPassword};
+      let  authenticator = 'authenticator:jwt';
       this.get('session').authenticate(authenticator, credentials).catch((reason)=> {
         // this.transitionTo('login');
         if (reason.status == 401) {

@@ -2,7 +2,7 @@
   {{#if model.canAddArticle}}
     <QuotesUpdate @actionName='postArticle' @userId={{model.user.id}} @errorMsg='' />
   {{/if}}
-  <h1><strong>{{model.user.name}}'s Articles - {{model.user.numberOfArticles}}</strong></h1>
+  <h1><strong>{{model.user.name}}'s Articles - {{articleCount}}</strong></h1>
   <QuotesList @articles={{model.user.articles}} @editable={{true}} />
 </div>
-<ProfileDetails @user={{model.user}} />
+<ProfileDetails @user={{model.user}} @articleCount={{articleCount}}/>}

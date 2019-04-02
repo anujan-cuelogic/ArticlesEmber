@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  totalArticlesCount: Ember.computed.alias('model.articles.length'),
-  
+  articleCount: Ember.computed.alias('model.user.articles.length'),
+  actions: {}
 });
