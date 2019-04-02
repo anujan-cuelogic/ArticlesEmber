@@ -18,7 +18,7 @@ export default Controller.extend({
       // debugger
       if (name && username && password) {
         return registeredUser.save().then((user) => {
-        this.transitionToRoute('login');
+          window.location.href = '/login';
         }).catch((reason) => {
             this.set('errorMessage', reason.error || reason);
           }); 
