@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   session: Ember.inject.service(),
+  articleCount: Ember.computed.alias('model.user.articles.length'),
   beforeModel() {
     if (!this.get('session.isAuthenticated')) {
       this.replaceWith('login');
