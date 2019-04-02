@@ -13,7 +13,16 @@ export default Route.extend({
   },
 
   async model(params) {
-    var user = await this.get('store').find('user', params.user_id);
+    var user = await this.get('store').find('user', params.user_id).catch((reason)=> {
+      // this.transitionTo('login');
+      if (reason.errors.firstObject.status == 404) {
+        this.set('errorMessage', 'You are unauthorized to access this page.');
+        this.transitionTo('user',this.currentUser.userId);
+      } else {
+        this.set('errorMessage', 'Looks like our server is in trouble!! Try again in few minutes');
+        this.transitionTo('/');
+      }
+    });
     var canAddArticle = (this.get('currentUser.userId') == user.id)
     return {
       user: user,

@@ -12,7 +12,6 @@ export default Component.extend({
   }),
 
   canModify: Ember.computed(function() {
-    console.log('computed', this.get('editable'), this.get('user.id'), this.get('currentUser.userId'));
     if (this.get('editable')) {
       return this.get('currentUser.userId') == this.get('user.id')
     }
