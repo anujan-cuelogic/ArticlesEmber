@@ -1,12 +1,14 @@
 import DS from 'ember-data';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
 export default DS.JSONAPIAdapter.extend({
   // authorizer: 'authorizer:custom',
   host: "http://localhost:3000",
-  session: Ember.inject.service(),
-  headers: Ember.computed('session.token', function() {
+  session: service(),
+  headers: computed(function() {
     return {Authorization: this.get('session.data.authenticated.token')}
-  })
+  }).volatile()
   // ajax(url, method, hash) {
   //   if (true) {
   //     if (hash === undefined) { hash = {}; }
