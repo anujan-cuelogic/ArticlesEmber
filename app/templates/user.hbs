@@ -5,4 +5,4 @@
   <h1><strong>{{model.user.name}}'s Articles - {{articleCount}}</strong></h1>
   <QuotesList @articles={{model.user.articles}} @editable={{true}} />
 </div>
-<ProfileDetails @user={{model.user}} @articleCount={{articleCount}}/>
+<ProfileDetails @user={{model.user}} @articleCount={{articleCount}} @isCurrentUser={{model.canAddArticle}}/>

@@ -18,7 +18,8 @@ export default Controller.extend({
       });
       if (name && username && password) {
         return registeredUser.save().then((user) => {
-        window.location.replace('/login');
+        // window.location.replace('/login');
+        this.transitionToRoute('login');
         }).catch((reason) => {
             this.set('errorMessage', reason.error || reason);
           }); 
