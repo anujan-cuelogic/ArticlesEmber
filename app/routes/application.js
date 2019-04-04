@@ -28,7 +28,7 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   model() {
-    return {currentUserId: this.get('currentUser.userId')}
+    // return {currentUserId: this.get('currentUser.userId')}
   },
 
   actions: {
