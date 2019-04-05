@@ -1,11 +1,11 @@
 import Service from '@ember/service';
-
 import Ember from 'ember';
+import { inject as service } from '@ember/service'
 
-const { inject: { service }, RSVP } = Ember;
+export default Service.extend({
 
-export default Ember.Service.extend({
   session: service('session'),
+
   store: service(),
 
   load() {
@@ -16,4 +16,5 @@ export default Ember.Service.extend({
       this.get('session').invalidate();
     }
   }
+
 });
