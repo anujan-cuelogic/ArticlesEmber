@@ -3,29 +3,12 @@
     <div class="t-bg"></div>
     <div class="form-group">
       {{#link-to "user" class="secbox"}}
-      <img src="/images/gravatar.png" alt="avatar">
-      <h2>{{user.name}}</h2>
-      <p>@{{user.username}}</p>
+        <img src="/images/gravatar.png" alt="avatar">
+        <h2>{{user.name}}</h2>
+        <p>@{{user.username}}</p>
       {{/link-to}}
       {{#if this.isCurrentUser}}
-        {{#if this.bioEdited}}
-          <div class="form-group col-sm-12 profile profile-pic">
-            {{textarea class="form-control" placeholder="Start writing your bio here" value=updatedBio}}
-            <div class="pull-right" onClick={{action 'onClickCloseBioIcon'}}><a href="#"><i class="material-icons md-18">highlight_off</i></a></div>
-            <div class="pull-right" onClick={{action 'onClickSaveBioIcon'}}><a href="#"><i class="material-icons md-18">done</i></a></div>
-          </div>
-        {{else}}
-          {{#if user.bio.length}}
-          <div class="form-group col-sm-12 profile profile-pic">
-            {{user.bio}}
-            <div class="edit" onClick={{action 'onClickEditBioIcon'}}><a href="#"><i class="material-icons md-18">edit</i></a></div>
-          </div>
-          {{else}}
-            <div class="form-group col-sm-12 profile profile-pic">
-            <div class="" onClick={{action 'onClickEditBioIcon'}}><a href="#"><i class="material-icons md-18">edit</i>Click here</a> to add Bio.</div>
-          </div>
-          {{/if}}
-        {{/if}}
+        {{component this.bioComponent user=user currentUserId=this.CurrentUser.userId bioText=bioText editBio=(action "editBio") updateBio=(action "updateBio") closeEditor=(action "closeEditor")}}
       {{else}}
         <div class="form-group col-sm-12 profile-pic">
           {{user.bio}}
@@ -34,18 +17,18 @@
     </div>
     <div class="form-group">
       <div class="row mrgn-m">
-        <div class="col-sm-12 text-center">
+        <div class="col-sm-12 text-center" style="margin-top: 10px;">
           <span class="small-txt">Articles</span>
           <span class="big-txt">{{articleCount}}</span>
         </div>
         <!-- <div class="col-sm-4">
-            <span class="small-txt">following</span>
-            <span class="big-txt">{{#link-to "user.following"}}{{user.numberOfFollowing}} {{/link-to}}</span>
-          </div>
-          <div class="col-sm-4">
-            <span class="small-txt">followers</span>
-            <span class="big-txt">{{#link-to "user.followers"}}{{user.numberOfFollowers}}{{/link-to}}</span>
-          </div> -->
+          <span class="small-txt">following</span>
+          <span class="big-txt">{{#link-to "user.following"}}{{user.numberOfFollowing}} {{/link-to}}</span>
+        </div>
+        <div class="col-sm-4">
+          <span class="small-txt">followers</span>
+          <span class="big-txt">{{#link-to "user.followers"}}{{user.numberOfFollowers}}{{/link-to}}</span>
+        </div> -->
       </div>
     </div>
   </div>

@@ -1,0 +1,9 @@
+<div class="col-sm-12" style="margin-top: 20px;">
+  {{user.bio}}
+  <div class="" onClick={{action 'editBio' user}}>
+    <a href="javascript:void(0)">
+      <i class="material-icons md-18 pull-right">edit</i>
+      {{#unless user.bio.length}} Add bio here {{/unless}}
+    </a>
+  </div>
+</div>

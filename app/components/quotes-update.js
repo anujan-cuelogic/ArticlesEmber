@@ -11,7 +11,6 @@ export default Component.extend({
         this.get('store').findRecord('user', this.get('userId')).then((user) => {
           var ArticleData = {body: txt, user: user};
           var newArticle = this.get('store').createRecord('article', ArticleData)
-          this.set('articlesCount', this.get('articlesCount') + 1)
           return newArticle.save();
         });
         this.set('articleText', '')
@@ -31,12 +30,12 @@ export default Component.extend({
           return article.save();
         });
         this.get('router').transitionTo('user', this.get('userId'));
-        this.set('alertClass', 'Article updated successfully')
-        this.set('alert', 'Article updated successfully')
-        this.set('articleText', '')
+        this.set('alertClass', 'Article updated successfully');
+        this.set('alert', 'Article updated successfully');
+        this.set('articleText', '');
       } else {
-        this.set('errorMsg', 'Cannot submit blank article')
-      } 
+        this.set('errorMsg', 'Cannot submit blank article');
+      }
     },
 
   }

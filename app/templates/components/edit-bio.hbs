@@ -1,0 +1,9 @@
+<div class="form-group col-sm-12 profile profile-pic">
+  {{textarea class="form-control" placeholder="Start writing your bio here" value=bioText}}
+  <div class="pull-right" onClick={{action 'closeEditor'}}>
+    <a href="javascript:void(0)"><i class="material-icons md-18">highlight_off</i></a>
+  </div>
+  <div class="pull-right" onClick={{action 'updateBio' user}}>
+    <a href="javascript:void(0)"><i class="material-icons md-18">done</i></a>
+  </div>
+</div>
