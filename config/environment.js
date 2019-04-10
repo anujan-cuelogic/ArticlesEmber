@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'quotes',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -57,7 +57,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.host = 'http://ec2-13-233-165-19.ap-south-1.compute.amazonaws.com';
+    ENV.host = 'http://ec2-13-234-153-162.ap-south-1.compute.amazonaws.com';
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:custom',
       routeAfterAuthentication: 'index'
