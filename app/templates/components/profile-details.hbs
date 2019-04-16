@@ -9,7 +9,7 @@
       {{/link-to}}
       {{#if this.isCurrentUser}}
         <div style="padding: 10px;">
-          {{#link-to "profile-picture"}}Edit Profile Picture{{/link-to}}
+          {{#link-to "profile-picture"}}Upload Picture{{/link-to}}
         </div>
         {{component this.bioComponent user=user currentUserId=this.CurrentUser.userId bioText=bioText editBio=(action "editBio") updateBio=(action "updateBio") closeEditor=(action "closeEditor")}}
       {{else}}
