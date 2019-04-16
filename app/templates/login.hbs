@@ -12,11 +12,13 @@
         </div>
         <button type="submit" class="btn btn-default">Login</button>
       </form>
-      {{#if errorMessage}}
-      <div class="alert alert-danger">
-        <p>
-          <strong>Login failed:</strong> <code>{{errorMessage}}</code>
-        </p>
+      {{#if this.errors.length}}
+      <div class="alert10 alert-danger">
+        <ul class="errors">
+          {{#each this.errors as |error|}}
+          <li>{{error.message}}</li>
+          {{/each}}
+        </ul>
       </div>
       {{/if}}
     </div>

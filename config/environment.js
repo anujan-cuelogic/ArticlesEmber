@@ -57,6 +57,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.host = 'http://ec2-13-234-153-162.ap-south-1.compute.amazonaws.com';
+    ENV['ember-simple-auth'] = {
+      authorizer: 'authorizer:custom',
+      routeAfterAuthentication: 'index'
+    };
   }
 
   return ENV;
