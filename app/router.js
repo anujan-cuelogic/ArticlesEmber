@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('home');
   this.route('new-article');
   this.route('edit-article', {path: 'user/:user_id/article/:article_id'});
+  this.route('profile-picture');
   this.route('users');
   this.route('user', {path: '/user/:user_id'}, function() {
     this.route('followers');

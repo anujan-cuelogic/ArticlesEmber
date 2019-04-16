@@ -23,10 +23,9 @@ export default Route.extend({
         this.transitionTo('/');
       }
     });
-    var canAddArticle = (this.get('currentUser.userId') == user.id)
     return {
       user: user,
-      canAddArticle: canAddArticle,
+      canAddArticle: (this.get('currentUser.userId') == user.id)
     }
   },
 

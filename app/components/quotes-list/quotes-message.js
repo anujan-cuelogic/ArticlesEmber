@@ -12,9 +12,7 @@ export default Component.extend({
   }),
 
   canModify: Ember.computed(function() {
-    if (this.get('editable')) {
-      return this.get('currentUser.userId') == this.get('user.id')
-    }
+    return (this.get('editable') && this.get('currentUser.userId') == this.get('user.id'));
   }),
 
   actions: {

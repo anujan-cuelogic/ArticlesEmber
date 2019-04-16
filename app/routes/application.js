@@ -33,7 +33,7 @@ export default Route.extend(ApplicationRouteMixin, {
 
   actions: {
     invalidateSession: function() {
-        this.get('session').invalidate();
+      this.get('session').invalidate();
     }
   }
 });

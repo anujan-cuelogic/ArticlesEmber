@@ -3,11 +3,14 @@
     <div class="t-bg"></div>
     <div class="form-group">
       {{#link-to "user" class="secbox"}}
-        <img src="/images/gravatar.png" alt="avatar">
+        <img src={{user.profile_picture}} alt="avatar">
         <h2>{{user.name}}</h2>
         <p>@{{user.username}}</p>
       {{/link-to}}
       {{#if this.isCurrentUser}}
+        <div style="padding: 10px;">
+          {{#link-to "profile-picture"}}Edit Profile Picture{{/link-to}}
+        </div>
         {{component this.bioComponent user=user currentUserId=this.CurrentUser.userId bioText=bioText editBio=(action "editBio") updateBio=(action "updateBio") closeEditor=(action "closeEditor")}}
       {{else}}
         <div class="form-group col-sm-12 profile-pic">
