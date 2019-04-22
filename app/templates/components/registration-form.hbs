@@ -1,0 +1,33 @@
+<div class="form-group">
+  <label>{{lableName}}</label>
+  {{input type="text" placeholder="Name" value=name  class="form-control"}}
+  {{#if this.serverErrors.name}}
+    <ErrorMessages @attr_errors={{this.serverErrors.name}} />
+  {{/if}}
+</div>
+
+<div class="form-group">
+  <label>{{lableName}}</label>
+  {{input type="text" placeholder="Username" value=username  class="form-control"}}
+  {{#if this.serverErrors.username}}
+    <ErrorMessages @attr_errors={{this.serverErrors.username}} />
+  {{/if}}
+</div>
+
+<div class="form-group">
+  <label>{{lableName}}</label>
+  {{input type="password" placeholder="Password" value=password  class="form-control"}}
+  {{#if this.serverErrors.password}}
+    <ErrorMessages @attr_errors={{this.serverErrors.password}} />
+  {{/if}}
+</div>
+
+<div class="form-group">
+  <input type="button" class="btn btn-default full-width" value="Register" {{action 'registerUser'}}>
+</div>
+
+{{#if errorMessage}}
+  <div class="form-group">
+    <p class="alert alert-danger">{{errorMessage}}</p>
+  </div>  
+{{/if}}
