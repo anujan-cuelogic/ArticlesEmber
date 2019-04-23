@@ -3,7 +3,7 @@
     <div class="col-sm-12">
       <form {{action "authenticate" on='submit'}}>
         <div class="form-group">
-          <label for="identification">Login</label>
+          <label for="identification">Username</label>
           {{input value=identification placeholder='Enter Username' class='form-control'}}
         </div>
         <div class="form-group">
@@ -12,6 +12,9 @@
         </div>
         <button type="submit" class="btn btn-default">Login</button>
       </form>
+      <div class="form-group pull-right">
+        <span>You are not registered {{#link-to "signup"}}click here{{/link-to}}.</span>
+      </div>
       {{#if this.errors.length}}
       <div class="alert10 alert-danger">
         <ul class="errors">
